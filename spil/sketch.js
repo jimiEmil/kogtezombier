@@ -1,12 +1,12 @@
 function setup () {
-createCanvas(windowWdith, WindowHeight);
+createCanvas(windowWidth, windowHeight);
 
 }
 
 function draw(){
-backgroud(255,0,0);
+background(0,0,0);
 
-fill(0);
+fill(255);
 circle(200, 200, 50);
 
 }
