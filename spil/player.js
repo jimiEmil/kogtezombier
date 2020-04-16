@@ -1,25 +1,54 @@
 function Player() {
-    this.x = 0;
-    this.y = 0; 
-    this.xspeed = 0;
-    this.yspeed = 0;
 
-    this.dir = function(x, y) {
-        this.xspeed = x;
-        this.yspeed = y;
+
+
+    // show
+
+    strokeWeight(5);
+    circle(cx, cy, 50);
+
+    // update position
+    const step = 1;
+    if (state.left) {
+        cx -= step;
     }
-
-    this.update = function() {
-        this.x = this.x + this.xspeed;
-        this.y = this.y + this.yspeed;
-    } 
-
-    this.show = function() {
-        fill(255);
-        rect(this.x, this.y, 30,30);
-        
-       
+    if (state.right) {
+        cx += step;
     }
+    if (state.up) {
+        cy -= step;
+    }
+    if (state.down) {
+        cy += step;
+    }
+}
 
+function keyPressed() {
+    if (keyCode === LEFT_ARROW) {
+        state.left = true;
+    }
+    if (keyCode === RIGHT_ARROW) {
+        state.right = true;
+    }
+    if (keyCode === UP_ARROW) {
+        state.up = true;
+    }
+    if (keyCode === DOWN_ARROW) {
+        state.down = true;
+    }
+}
 
+function keyReleased() {
+    if (keyCode === LEFT_ARROW) {
+        state.left = false;
+    }
+    if (keyCode === RIGHT_ARROW) {
+        state.right = false;
+    }
+    if (keyCode === UP_ARROW) {
+        state.up = false;
+    }
+    if (keyCode === DOWN_ARROW) {
+        state.down = false;
+    }
 }
