@@ -1,30 +1,15 @@
-let cx;
-let cy;
-let cx2;
-let cy2;
+let p1;
+let p2;
 
-let state = {
-    up: false,
-    down: false,
-    left: false,
-    right: false,
 
-};
-
-let state2 = {
-    w: false,
-    s: false,
-    a: false,
-    d: false,
-};
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
     cx = width / 2;
     cy = height / 2;
 
-    cx2 = width / 2;
-    cy2 = height / 2;
+    p1 = new Player();
+    p2 = new Player();
 }
 
 function draw() {
@@ -33,10 +18,67 @@ function draw() {
     noStroke();
 
 
-    Player();
-    Player2();
+    p1.render();
+    p1.update();
+    p2.render();
+    p2.update();
+
 }
 
 
+function keyPressed() {
+    if (keyCode === LEFT_ARROW) {
+        p1.state.left = true;
+    }
+    if (keyCode === RIGHT_ARROW) {
+        p1.state.right = true;
+    }
+    if (keyCode === UP_ARROW) {
+        p1.state.up = true;
+    }
+    if (keyCode === DOWN_ARROW) {
+        p1.state.down = true;
+    }
+    if (key === 'a') {
+        p2.state.left = true;
+    }
+    if (key === 'd') {
+        p2.state.right = true;
+    }
+    if (key === 'w') {
+        p2.state.up = true;
+    }
+    if (key === 's') {
+        p2.state.down = true;
+    }
+}
 
 
+function keyReleased() {
+    if (keyCode === LEFT_ARROW) {
+        p1.state.left = false;
+    }
+    if (keyCode === RIGHT_ARROW) {
+        p1.state.right = false;
+    }
+    if (keyCode === UP_ARROW) {
+        p1.state.up = false;
+    }
+    if (keyCode === DOWN_ARROW) {
+        p1.state.down = false;
+    }
+    if (key === 'a') {
+        p2.state.left = false;
+    }
+    if (key === 'd') {
+        p2.state.right = false;
+    }
+    if (key === 'w') {
+        p2.state.up = false;
+    }
+    if (key === 's') {
+        p2.state.down = false;
+    }
+
+
+}
