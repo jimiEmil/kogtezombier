@@ -1,52 +1,24 @@
-let player;
-
+let s;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    player = new Player();
+    s = new Player();
 }
 
 function draw() {
-    background(0);
-    player.render();
-    //player.turn(0.1);
-}
-//figur 
+    background(51);
+    s.update();
+    s.show();
 
+}
 function keyPressed() {
-if (keyCode == RIGHT_ARROW){
-player.turn(0.1);
-} else if (keyCode == LEFT_ARROW){
-  player.turn(-0.1);
-}
-
-}
-
-function Player() {
-    this.pos = createVector(width / 2, height / 2);
-    this.r = 30;
-    this.heading = PI / 2;
-
-
-
-    this.render = function () {
-        translate(this.pos.x, this.pos.y);
-        rotate(this.heading);
-        noFill();
-        stroke(255, 0, 0);
-        triangle(-this.r, this.r, this.r, this.r, 0, -this.r);
-
-
-
+    if (keyCode === UP_ARROW) {
+        s.dir(0, -1);
+    } else if (keyCode === DOWN_ARROW) {
+        s.dir(0, 1);
+    } else if (keyCode === RIGHT_ARROW) {
+        s.dir(1, 0);
+    } else if (keyCode === LEFT_ARROW) {
+        s.dir(-1, 0);
     }
-
-    this.turn = function (angle) {
-        this.heading += angle;
-    }
-
 }
-
-//function keyPressed() {
-
-   // if (key == ' ') {
-   //   skyd.play();
