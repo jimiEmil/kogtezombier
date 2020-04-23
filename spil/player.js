@@ -17,8 +17,8 @@ function Player() {
         push();
         //fill(255,0,0);
         stroke("red");
-        line(50, 50, 150, 150);
-        pop();
+        line(this.cx, this.cy, this.cx+25, this.cy+25);
+        pop(); 
 
     }
 
@@ -44,7 +44,9 @@ function Player() {
         
     }
 
+    
     //lav en form for heading, så man kan se og skyde den vej man kigger (sidst trykkede)
 }
+
 
 

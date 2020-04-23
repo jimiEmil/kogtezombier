@@ -34,6 +34,7 @@ function draw() {
 
 
 function keyPressed() {
+    
     if (keyCode === LEFT_ARROW) {
         p1.state.left = true;
     }
