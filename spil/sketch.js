@@ -1,15 +1,20 @@
 let p1;
 let p2;
-
+let zombier;
 
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(windowWidth/1.01, windowHeight/1.05);
+    
+    
     cx = width / 2;
     cy = height / 2;
 
+
     p1 = new Player();
     p2 = new Player();
+
+    zombier = new Zombier();
 }
 
 function draw() {
@@ -23,6 +28,8 @@ function draw() {
     p2.render();
     p2.update();
 
+    //zombier.update();
+    zombier.render();
 }
 
 

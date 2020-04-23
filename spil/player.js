@@ -13,6 +13,12 @@ function Player() {
     this.render = function () {
         strokeWeight(5);
         circle(this.cx, this.cy, 50);
+        push();
+        //fill(255,0,0);
+        stroke("red");
+        line(50, 50, 150, 150);
+        pop();
+
     }
 
     this.update = function () {
@@ -34,6 +40,8 @@ function Player() {
             this.cy += step;
         }
     }
+
+    //lav en form for heading, så man kan se og skyde den vej man kigger (sidst trykkede)
 }
 
 
