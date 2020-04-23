@@ -1,5 +1,6 @@
 function Player() {
 
+
     this.state = {
         up: false,
         down: false,
@@ -39,6 +40,8 @@ function Player() {
         if (this.state.down) {
             this.cy += step;
         }
+
+        
     }
 
     //lav en form for heading, så man kan se og skyde den vej man kigger (sidst trykkede)
