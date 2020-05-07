@@ -3,6 +3,7 @@ this.pos= createVector(width / 2, height / 2);
 
 
 
+
     this.state = {
         up: false,
         down: false,
@@ -18,6 +19,12 @@ this.pos= createVector(width / 2, height / 2);
     
         strokeWeight(5);
         circle(this.cx, this.cy, 50);
+        push();
+        //fill(255,0,0);
+        stroke("red");
+        line(this.cx, this.cy, this.cx+25, this.cy+25);
+        pop(); 
+
     }
 
     this.update = function () {
@@ -38,7 +45,12 @@ this.pos= createVector(width / 2, height / 2);
         if (this.state.down) {
             this.cy += step;
         }
+
+        
     }
+
+    
+    //lav en form for heading, så man kan se og skyde den vej man kigger (sidst trykkede)
 }
 
 // function Laser(spos, angle) {
@@ -58,4 +70,5 @@ this.pos= createVector(width / 2, height / 2);
 //     }
 
 // }
+
 
