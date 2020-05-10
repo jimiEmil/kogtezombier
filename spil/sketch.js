@@ -5,6 +5,8 @@ let zombier;
 
 function setup() {
     createCanvas(windowWidth/1.01, windowHeight/1.05);
+
+    frameRate(30);
     
     
     cx = width / 2;
@@ -14,7 +16,7 @@ function setup() {
     p1 = new Player();
     p2 = new Player();
 
-    zombier = new Zombier();
+    zombier = new Zombier(p1, p2);
 }
 
 function draw() {
@@ -23,13 +25,20 @@ function draw() {
     noStroke();
 
 
-    p1.render();
     p1.update();
-    p2.render();
+    p1.render();
     p2.update();
+    p2.render();
 
-    //zombier.update();
+    if(p1.health > 0 || p2.health > 0){
+        zombier.update();
+    }
     zombier.render();
+
+    if(p1.health < 0 || p2.health < 0){
+        console.log("haha, lame");
+    }
+
 }
 
 
