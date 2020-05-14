@@ -1,10 +1,13 @@
 let p1;
 let p2;
 let zombier;
+let lasers =[];
 
 
 function setup() {
     createCanvas(windowWidth/1.01, windowHeight/1.05);
+
+    frameRate(30);
     
     
     cx = width / 2;
@@ -14,7 +17,7 @@ function setup() {
     p1 = new Player();
     p2 = new Player();
 
-    zombier = new Zombier();
+    zombier = new Zombier(p1, p2);
 }
 
 function draw() {
@@ -23,19 +26,39 @@ function draw() {
     noStroke();
 
 
-    p1.render();
     p1.update();
-    p2.render();
+    p1.render();
     p2.update();
+    p2.render();
 
-    //zombier.update();
+for(var i =0; i < lasers.length; i++) {
+    lasers[i].render();
+    lasers[i].update();
+}
+
+
+    if(p1.health > 0 || p2.health > 0){
+        zombier.update();
+    }
     zombier.render();
+
+    if(p1.health < 0 || p2.health < 0){
+        console.log("haha, lame");
+    }
+  
+
+
+
 }
 
 
 function keyPressed() {
     
-    if (keyCode === LEFT_ARROW) {
+    if(key ==' '){
+    
+        lasers.push(new Laser(p1.pos, p1.lastRotation));
+   
+    }else if (keyCode === LEFT_ARROW) {
         p1.state.left = true;
     }
     if (keyCode === RIGHT_ARROW) {
