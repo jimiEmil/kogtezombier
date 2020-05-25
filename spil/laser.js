@@ -1,19 +1,27 @@
-function Laser(p1pos, angle){
-this.pos =createVector(p1pos.x,p1pos.y);
-this.vel = p5.Vector.fromAngle(angle);
+function Laser(startpos, angle) {
+    this.pos = createVector(startpos.x, startpos.y);
+    this.vel = p5.Vector.fromAngle(angle);
+    //fart på skydet 
+    this.vel.mult(10);
 
+    this.update = function () {
+        
+        this.pos.add(this.vel);
+    }
+    this.render = function () {
+        push();
+        stroke('blue');
+        strokeWeight(4);
+        point(this.pos.x, this.pos.y);
+        pop();
+    }
 
-this.update = function(){
-this.pos.add(this.vel);
-}
-this.render = function(){
-    push();
-    stroke(255);
-    strokeWeight(4);
-   point(this.p1pos.x, this.p1pos.y);
-   pop();
-}
-
+    this.hits = function(zombier) {
+        var d = dist(this.pos.x, this.pos.y, zombier.pos.x, zombier.pos.y);
+        if (d < zombier.r){
+            console.log('HIT');
+        }
+    }
 
 
 

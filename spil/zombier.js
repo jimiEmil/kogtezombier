@@ -1,6 +1,6 @@
 function Zombier(p1, p2){
     console.log(p1, p2);
-    this.moveSpeed = 1.05;
+    this.moveSpeed = 0,01;
 
     this.radius = 25;
 
@@ -14,6 +14,16 @@ function Zombier(p1, p2){
         fill(0, 160, 0);
         strokeWeight(6);
         circle(this.cx, this.cy, this.radius * 2);
+            //circle(this.cx, this.cy, this.radius * 2);
+       // beginShape();
+       // for (var i= 0; i < 10; i++){
+         //   var angle = map(i, 0, 10, 0, TWO_PI);
+         //   this.cx = this.r *cos(angle);
+           // this.cy = this.r *sin(angle);
+            //vertex (cx,cy);
+
+        //}
+        //endShape(CLOSE);
     }
 
     this.update = function (){

@@ -33,6 +33,8 @@ function Player() {
     
     this.lastRotation = this.rotation.right;
 
+
+    //this.pos= createVector(width/2,height/2);
     this.cx = width / 2;
     this.cy = height / 2;
 
