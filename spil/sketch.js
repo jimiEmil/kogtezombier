@@ -16,8 +16,8 @@ function setup() {
 
     p1 = new Player();
     p2 = new Player();
-    for (var i= 0; i < 10; i++) {
-    zombier = new Zombier(p1, p2);
+    for (var i = 0; i < 10; i++) {
+        zombier = new Zombier(p1, p2);
     }
 }
 
@@ -28,9 +28,9 @@ function draw() {
     // vi skal tegne laseren først så vi ikke kan se den 
 
 
-   // for (var i =0; i< zombier.length; i++){
-     //   zombier[i].render();
-   // }
+    // for (var i =0; i< zombier.length; i++){
+    //   zombier[i].render();
+    // }
     push();
     if (p1.health > 0 || p2.health > 0) {
         zombier.update();
@@ -51,8 +51,8 @@ function draw() {
 
         //if (lasers[i].hits(zombier)){ 
 
-      //  }
-  //  }
+        //  }
+        //  }
 
     }
 
@@ -61,6 +61,11 @@ function draw() {
     p2.update();
     p2.render();
 
+
+    textSize(200);
+    fill(255);
+    text('Player 1 Health: ' + p1.health, 50, 300);
+    text('player 2 health: ' + p2.health, 50, 200);
 }
 
 
