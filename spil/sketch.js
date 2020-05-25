@@ -39,6 +39,9 @@ function draw() {
         console.log("haha, lame");
     }
 
+    text("player 1 health: "+ p1.heath, 10, 10);
+    text("player 2 health: "+ p2.heath, 10, 20);
+
 }
 
 
