@@ -62,10 +62,10 @@ function draw() {
     p2.render();
 
 
-    textSize(200);
+    textSize(32);
     fill(255);
-    text('Player 1 Health: ' + p1.health, 50, 300);
-    text('player 2 health: ' + p2.health, 50, 200);
+    text('Player 1 Health: ' + p1.health, 10, 40);
+    text('Player 2 Health: ' + p2.health, 10, 70);
 }
 
 

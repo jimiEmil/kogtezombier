@@ -57,7 +57,12 @@ function Zombier(p1, p2) {
         else if (this.p2.health > 0) {
             return this.p2;
         }
-
+        else if (distanceToPlayer2 < distanceToPlayer1 && this.p2.health > 0){
+            return this.p2;
+        }
+        else if (this.p1.health > 0) {
+            return this.p1;
+        }
     }
 
     this.findDistanceToPlayer = function (player) {
