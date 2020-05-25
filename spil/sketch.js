@@ -1,12 +1,24 @@
 let p1;
 let p2;
+let død1;
+let død2; 
+let skade;
+let skud1;
+let skud2;
+//let zombieDød;
+
 let zombier = [];
 let lasers = [];
 
 
 function setup() {
     createCanvas(windowWidth / 1.01, windowHeight / 1.05);
-
+skade = loadSound("lyd/skade.mp3");
+skud1 = loadSound("lyd/jimi.mp3");
+skud2 = loadSound("lyd/kasper.mp3");
+død1 = loadSound("lyd/død.mp3");
+død2 = loadSound("lyd/død2.mp3");
+//zombieDød = loadSound("lyd/zombieD.mp3");
     frameRate(30);
 
 
@@ -39,6 +51,8 @@ function draw() {
 
     if (p1.health < 0 || p2.health < 0) {
         console.log("haha, lame");
+        //skyd.play();
+        //skyd.setVolume(0.1);
     }
     pop();
 
@@ -66,13 +80,15 @@ function draw() {
     fill(255);
     text('Player 1 Health: ' + p1.health, 10, 40);
     text('Player 2 Health: ' + p2.health, 10, 70);
-}
+} 
 
 
 function keyPressed() {
 
     if (key == ' ') {
-
+        skud1.play();
+        skud1.setVolume(1);
+ 
         let pos = createVector(p1.cx, p1.cy);
         let heading = radians(p1.lastRotation)
         //let heading = p1.lastRotation
@@ -107,6 +123,8 @@ function keyPressed() {
         p2.state.down = true;
     }
     if (key == 'q') {
+        skud2.play();
+        skud2.setVolume(1);
 
         let pos = createVector(p2.cx, p2.cy);
         let heading = radians(p2.lastRotation)

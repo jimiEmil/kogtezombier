@@ -1,6 +1,6 @@
 function Zombier(p1, p2) {
     console.log(p1, p2);
-    this.moveSpeed = 0, 01;
+    this.moveSpeed = 3;
 
     this.radius = 25;
 
@@ -80,6 +80,11 @@ function Zombier(p1, p2) {
         if (collisionRange >= distanceToPlayer) {
             player.health -= 1;
             console.log("dit liv er" + player.health);
+            if (!skade.isPlaying()) {
+            skade.play();
+            skade.setVolume(1);
+            }
+
 
         }
     }
