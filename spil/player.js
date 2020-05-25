@@ -1,4 +1,9 @@
+
 function Player() {
+    
+  
+
+
     this.degToRad = (Math.PI / 180);
 
     this.health = 30 * 3;
@@ -101,7 +106,7 @@ function Player() {
         
         
         // update position
-        const step = 1;
+        const step = 2;
         if (this.state.left) {
             this.cx -= step;
         }
@@ -123,5 +128,28 @@ function Player() {
    //lave en pew pew
 }
 
+
+
+
+
+
+
+// function Laser(spos, angle) {
+//     this.pos = createVector(spos.x, spos.y);
+//     this.vel = p5.Vector.fromAngle(angle);
+//     this.vel.mult(10);
+
+//     this.update = function () {
+//         this.pos.add(this.vel);
+//     }
+//     this.render = function () {
+//         push();
+//         stroke(255);
+//         strokeWeight(4);
+//         point(this.cx, this.cy)
+//         pop();
+//     }
+
+// }
 
 

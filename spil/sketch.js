@@ -1,6 +1,7 @@
 let p1;
 let p2;
 let zombier;
+let lasers =[];
 
 
 function setup() {
@@ -30,6 +31,12 @@ function draw() {
     p2.update();
     p2.render();
 
+for(var i =0; i < lasers.length; i++) {
+    lasers[i].render();
+    lasers[i].update();
+}
+
+
     if(p1.health > 0 || p2.health > 0){
         zombier.update();
     }
@@ -38,6 +45,9 @@ function draw() {
     if(p1.health < 0 || p2.health < 0){
         console.log("haha, lame");
     }
+  
+
+
 
     text("player 1 health: "+ p1.heath, 10, 10);
     text("player 2 health: "+ p2.heath, 10, 20);
@@ -47,7 +57,11 @@ function draw() {
 
 function keyPressed() {
     
-    if (keyCode === LEFT_ARROW) {
+    if(key ==' '){
+    
+        lasers.push(new Laser(p1.pos, p1.lastRotation));
+   
+    }else if (keyCode === LEFT_ARROW) {
         p1.state.left = true;
     }
     if (keyCode === RIGHT_ARROW) {
