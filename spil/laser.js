@@ -5,7 +5,7 @@ function Laser(startpos, angle) {
     this.vel.mult(10);
 
     this.update = function () {
-        
+
         this.pos.add(this.vel);
     }
     this.render = function () {
@@ -16,9 +16,9 @@ function Laser(startpos, angle) {
         pop();
     }
 
-    this.hits = function(zombier) {
+    this.hits = function (zombier) {
         var d = dist(this.pos.x, this.pos.y, zombier.pos.x, zombier.pos.y);
-        if (d < zombier.r){
+        if (d < zombier.r) {
             console.log('HIT');
         }
     }
