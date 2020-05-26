@@ -1,7 +1,7 @@
 
 function Player() {
-    
-  
+
+
 
 
     this.degToRad = (Math.PI / 180);
@@ -9,15 +9,15 @@ function Player() {
     this.health = 30 * 3;
 
     this.radius = 25;
-    
+
     this.state = {
         up: false,
         down: false,
         left: false,
         right: false,
-        
+
     };
-    
+
     this.rotation = {
         up: 270,
         down: 90,
@@ -28,9 +28,9 @@ function Player() {
         upLeft: 225,
         downLeft: 135,
         downRight: 45,
-        
+
     };
-    
+
     this.lastRotation = this.rotation.right;
 
 
@@ -50,25 +50,25 @@ function Player() {
 
         strokeWeight(5);
         circle(this.cx, this.cy, this.radius * 2);
-        
+
         this.renderLine();
     }
-    
-    this.renderLine = function(){
 
-        if (this.state.up && this.state.left){
+    this.renderLine = function () {
+
+        if (this.state.up && this.state.left) {
             this.drawLine(this.rotation.upLeft);
             this.lastRotation = this.rotation.upLeft;
         }
-        else if (this.state.up && this.state.right){
+        else if (this.state.up && this.state.right) {
             this.drawLine(this.rotation.upRight);
             this.lastRotation = this.rotation.upRight;
         }
-        else if (this.state.down && this.state.right){
+        else if (this.state.down && this.state.right) {
             this.drawLine(this.rotation.downRight);
             this.lastRotation = this.rotation.downRight;
         }
-        else if (this.state.down && this.state.left){
+        else if (this.state.down && this.state.left) {
             this.drawLine(this.rotation.downLeft);
             this.lastRotation = this.rotation.downLeft;
         }
@@ -76,7 +76,7 @@ function Player() {
         else if (this.state.left) {
             this.drawLine(this.rotation.left);
             this.lastRotation = this.rotation.left;
-        
+
         }
         else if (this.state.right) {
             this.drawLine(this.rotation.right);
@@ -90,26 +90,26 @@ function Player() {
             this.drawLine(this.rotation.down);
             this.lastRotation = this.rotation.down;
         }
-        else{
+        else {
             this.drawLine(this.lastRotation);
         }
     }
 
-    this.drawLine = function(angle){
+    this.drawLine = function (angle) {
         let rad = angle * this.degToRad;
         let x = Math.cos(rad) * 30;
         let y = Math.sin(rad) * 30;
-        
+
         push();
         stroke("red");
         line(this.cx, this.cy, this.cx + x, this.cy + y);
-        pop(); 
-        
+        pop();
+
     }
-    
+
     this.update = function () {
-        
-        
+
+
         // update position
         const step = 2;
         if (this.state.left) {
@@ -126,11 +126,11 @@ function Player() {
         }
 
 
-        
+
     }
 
-    
-   //lave en pew pew
+
+    //lave en pew pew
 }
 
 
