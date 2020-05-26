@@ -18,6 +18,9 @@ skud1 = loadSound("lyd/jimi.mp3");
 skud2 = loadSound("lyd/kasper.mp3");
 død1 = loadSound("lyd/død.mp3");
 død2 = loadSound("lyd/død2.mp3");
+
+soundFx = [død1,død2];
+
 //zombieDød = loadSound("lyd/zombieD.mp3");
     frameRate(30);
 
@@ -51,8 +54,10 @@ function draw() {
 
     if (p1.health < 0 || p2.health < 0) {
         console.log("haha, lame");
-        //skyd.play();
-        //skyd.setVolume(0.1);
+        if (!skade.isPlaying()) {
+        randomSFX = floor(random(0, soundFx.length));
+        soundFx[randomSFX].play();
+        }
     }
     pop();
 
