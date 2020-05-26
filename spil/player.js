@@ -1,7 +1,7 @@
 
 function Player() {
 
-
+    this.wasAlive = true;
 
 
     this.degToRad = (Math.PI / 180);
@@ -40,10 +40,11 @@ function Player() {
 
     this.render = function () {
         if (this.health <= 0){
-           console.warn("DU FUCKING DØD M8, HAHAHHAHAHAHAH");
-        if (!død1.isPlaying()) {
-        død1.play();
-        }
+            if(this.wasAlive){
+                console.warn("DU FUCKING DØD M8, HAHAHHAHAHAHAH");
+                død1.play();
+                this.wasAlive = false;
+            }
             return;
 
         }
@@ -108,7 +109,9 @@ function Player() {
     }
 
     this.update = function () {
-
+        if(!this.wasAlive){
+            return;
+        }
 
         // update position
         const step = 2;
@@ -125,7 +128,7 @@ function Player() {
             this.cy += step;
         }
 
-
+        
 
     }
 

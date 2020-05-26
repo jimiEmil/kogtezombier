@@ -33,8 +33,14 @@ død2 = loadSound("lyd/død2.mp3");
     p1 = new Player();
     p2 = new Player();
     for (var i = 0; i < 10; i++) {
-        zombier = new Zombier(p1, p2);
+        zombier.push(new Zombier(p1, p2, this.getRandomInt(0, width),this.getRandomInt(0, height)));
     }
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function draw() {
@@ -43,21 +49,36 @@ function draw() {
     noStroke();
   
     push();
-    if (p1.health > 0 || p2.health > 0) {
-        zombier.update();
+    for(let i = 0; i < zombier.length; i++){
+        let zombie = zombier[i];
+
+        if(zombie.health <= 0){
+            continue;
+        }
+
+        if (p1.health > 0 || p2.health > 0) {
+            zombie.update();
+        }
+
+        zombie.render();
     }
-    zombier.render();
+    
 
     if (p1.health < 0 || p2.health < 0) {
         console.log("haha, lame");
     }
     pop();
 
-
-
     for (var i = 0; i < lasers.length; i++) {
-        lasers[i].render();
+        if(typeof lasers[i] == 'undefined'){
+            continue;
+        }
         lasers[i].update();
+        lasers[i].render();
+
+        if(lasers[i].health <= 0){
+            delete lasers[i];
+        }
         //if (p1.health > 0 || p2.health > 0) {
 
         //if (lasers[i].hits(zombier)){ 
@@ -82,7 +103,7 @@ function draw() {
 
 function keyPressed() {
 
-    if (key == ' ') {
+    if (key == ' ' && p1.wasAlive) {
         skud1.play();
         skud1.setVolume(1);
  
@@ -119,7 +140,7 @@ function keyPressed() {
     if (key === 's') {
         p2.state.down = true;
     }
-    if (key == 'q') {
+    if (key == 'q' && p2.wasAlive) {
         skud2.play();
         skud2.setVolume(1);
 

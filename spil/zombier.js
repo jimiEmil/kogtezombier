@@ -1,15 +1,15 @@
-function Zombier(p1, p2) {
+function Zombier(p1, p2, cx, cy) {
     console.log(p1, p2);
-    this.moveSpeed = 3;
+    this.moveSpeed = 0.5;
 
     this.radius = 25;
+    this.health = 100;
 
     this.p1 = p1;
     this.p2 = p2;
-    zombPos = createVector(width / 2, height / 2);
 
-    this.cx = (width / 2) + 250;
-    this.cy = height / 2;
+    this.cx = cx;
+    this.cy = cy;
     this.render = function () {
         fill(0, 160, 0);
         strokeWeight(6);
@@ -79,6 +79,7 @@ function Zombier(p1, p2) {
 
         if (collisionRange >= distanceToPlayer) {
             player.health -= 1;
+            player.health = Math.max(0, player.health);
             console.log("dit liv er" + player.health);
             if (!skade.isPlaying()) {
             skade.play();
