@@ -7,6 +7,7 @@ let skud1;
 let skud2;
 //let zombieDød;
 
+
 let zombier = [];
 let lasers = [];
 
@@ -19,7 +20,7 @@ skud2 = loadSound("lyd/kasper.mp3");
 død1 = loadSound("lyd/død.mp3");
 død2 = loadSound("lyd/død2.mp3");
 
-soundFx = [død1,død2];
+
 
 //zombieDød = loadSound("lyd/zombieD.mp3");
     frameRate(30);
@@ -41,7 +42,6 @@ function draw() {
     fill(0);
     noStroke();
   
-    
     push();
     if (p1.health > 0 || p2.health > 0) {
         zombier.update();
@@ -50,10 +50,6 @@ function draw() {
 
     if (p1.health < 0 || p2.health < 0) {
         console.log("haha, lame");
-        if (!skade.isPlaying()) {
-        randomSFX = floor(random(0, soundFx.length));
-        soundFx[randomSFX].play();
-        }
     }
     pop();
 

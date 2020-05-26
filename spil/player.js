@@ -40,7 +40,10 @@ function Player() {
 
     this.render = function () {
         if (this.health <= 0){
-            console.warn("DU FUCKING DØD M8, HAHAHHAHAHAHAH");
+           console.warn("DU FUCKING DØD M8, HAHAHHAHAHAHAH");
+        if (!død1.isPlaying()) {
+        død1.play();
+        }
             return;
 
         }
