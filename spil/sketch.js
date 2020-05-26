@@ -40,12 +40,8 @@ function draw() {
     background(220);
     fill(0);
     noStroke();
-    // vi skal tegne laseren først så vi ikke kan se den 
-
-
-    // for (var i =0; i< zombier.length; i++){
-    //   zombier[i].render();
-    // }
+  
+    
     push();
     if (p1.health > 0 || p2.health > 0) {
         zombier.update();
