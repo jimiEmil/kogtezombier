@@ -7,8 +7,8 @@ let skud1;
 let skud2;
 //let zombieDød;
 
-let points1 = 0;
-let points2 = 0;
+//let points1 = 0;
+//let points2 = 0;
 
 
 let zombier = [];
@@ -51,14 +51,16 @@ function draw() {
     fill(0);
     noStroke();
   
+
+
     push();
     for(let i = 0; i < zombier.length; i++){
         let zombie = zombier[i];
-        text("player 1 points: " + points1, 10, 50);
+        
 
         if(zombie.health <= 0){
             continue;
-            points1++
+         
         }
 
         if (p1.health > 0 || p2.health > 0) {

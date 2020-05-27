@@ -1,6 +1,6 @@
 function Zombier(p1, p2, cx, cy) {
     console.log(p1, p2);
-    this.moveSpeed = 0.5;
+    this.moveSpeed = 0;
 
     this.radius = 25;
     this.health = 100;

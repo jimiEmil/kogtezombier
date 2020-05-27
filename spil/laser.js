@@ -2,6 +2,9 @@ function Laser(startpos, angle) {
 
     this.health = 5*30;
 
+    let point1 = 0;
+    let points2 = 0;
+
     this.pos = createVector(startpos.x, startpos.y);
     this.vel = p5.Vector.fromAngle(angle);
     //fart på skydet 
@@ -24,7 +27,11 @@ function Laser(startpos, angle) {
                 zombie.health = Math.max(0, zombie.health);
                 if(!død2.isPlaying()){
                     død2.play();
-                    }
+                    point1++;
+                }
+
+
+
                 this.health = 0;
                 break;
             }
