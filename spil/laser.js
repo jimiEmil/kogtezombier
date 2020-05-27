@@ -27,8 +27,8 @@ function Laser(startpos, angle) {
                 zombie.health = Math.max(0, zombie.health);
                 if(!død2.isPlaying()){
                     død2.play();
-                    point1++;
                 }
+                
 
 
 

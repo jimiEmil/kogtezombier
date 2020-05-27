@@ -37,6 +37,7 @@ død2 = loadSound("lyd/død2.mp3");
     p2 = new Player();
     for (var i = 0; i < 10; i++) {
         zombier.push(new Zombier(p1, p2, this.getRandomInt(0, width),this.getRandomInt(0, height)));
+        
     }
 }
 
