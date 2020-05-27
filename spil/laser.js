@@ -1,13 +1,12 @@
-function Laser(startpos, angle) {
+function Laser(startpos, angle, player) {
 
     this.health = 5*30;
 
-    let point1 = 0;
-    let points2 = 0;
+    this.shooter = player;
 
     this.pos = createVector(startpos.x, startpos.y);
     this.vel = p5.Vector.fromAngle(angle);
-    //fart på skydet 
+    //fart på skudet 
     this.vel.mult(10);
 
     this.update = function () {
@@ -25,12 +24,14 @@ function Laser(startpos, angle) {
             if(zombie.radius >= zombieDistance){
                 zombie.health -= 100;
                 zombie.health = Math.max(0, zombie.health);
-                if(!død2.isPlaying()){
-                    død2.play();
+
+                if(zombie.health == 0){
+                    if(!død2.isPlaying()){
+                        død2.play();
+                    }
+
+                    this.shooter.point += 10;
                 }
-                
-
-
 
                 this.health = 0;
                 break;

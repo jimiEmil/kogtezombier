@@ -3,6 +3,7 @@ function Player() {
 
     this.wasAlive = true;
 
+    this.point = 0;
 
     this.degToRad = (Math.PI / 180);
 
@@ -34,7 +35,6 @@ function Player() {
     this.lastRotation = this.rotation.right;
 
 
-    //this.pos= createVector(width/2,height/2);
     this.cx = width / 2;
     this.cy = height / 2;
 
@@ -135,29 +135,5 @@ function Player() {
 
     //lave en pew pew
 }
-
-
-
-
-
-
-
-// function Laser(spos, angle) {
-//     this.pos = createVector(spos.x, spos.y);
-//     this.vel = p5.Vector.fromAngle(angle);
-//     this.vel.mult(10);
-
-//     this.update = function () {
-//         this.pos.add(this.vel);
-//     }
-//     this.render = function () {
-//         push();
-//         stroke(255);
-//         strokeWeight(4);
-//         point(this.cx, this.cy)
-//         pop();
-//     }
-
-// }
 
 
