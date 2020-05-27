@@ -22,7 +22,9 @@ function Laser(startpos, angle) {
             if(zombie.radius >= zombieDistance){
                 zombie.health -= 100;
                 zombie.health = Math.max(0, zombie.health);
-                
+                if(!død2.isPlaying()){
+                    død2.play();
+                    }
                 this.health = 0;
                 break;
             }
