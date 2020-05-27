@@ -15,6 +15,7 @@ let zombier = [];
 let lasers = [];
 
 
+
 function setup() {
     createCanvas(windowWidth / 1.01, windowHeight / 1.05);
 skade = loadSound("lyd/skade.mp3");
@@ -54,7 +55,7 @@ function draw() {
     push();
     for(let i = 0; i < zombier.length; i++){
         let zombie = zombier[i];
-        text("player 1 points: " + points1, 10, 50);
+        //text("player 1 points: " + points1, 10, 50);
 
         if(zombie.health <= 0){
             continue;
